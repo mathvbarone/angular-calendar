@@ -9,9 +9,14 @@ a.active{
   background-color: gray;
 }
 
+#calendar-container{
+  width: 462px;
+}
+
 .calendar-days{
   width: 60px;
   height: 60px;
   background: #669999;
   border: 3px solid #c2c2c2;
 }
+

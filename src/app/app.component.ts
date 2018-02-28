@@ -7,12 +7,29 @@ import * as moment from 'moment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
 
   public date = moment();
 
-  public ngOnInit() {
+  public daysArr;
+
+
+  createCalendar(month) {
+    // const firstDay = moment(month).startOf('M');
+     const days = Array.apply(null, {length: month.daysInMonth() + 1})
+       .map(Number.call, Number)
+       .slice(1);
+
+      return days;
+
   }
+
+
+  public ngOnInit() {
+
+    this.daysArr = this.createCalendar(this.date);
+  }
+
+
 
 
 }

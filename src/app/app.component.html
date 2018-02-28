@@ -1,5 +1,13 @@
 <div class="flex-container flex-center">
   <div id="calendar-container" class="flex-container flex-center flex-column">
+    <div class="flex-container flex-center-horz">
+      <i class="fas fa-chevron-left"></i>
+      <div class="width-20"></div>
+      <div>Fevereiro</div>
+      <div class="width-20"></div>
+      <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="height-20px"></div>
       <div class="flex-container">
           <div class="calendar-days flex-container flex-center">D</div>
           <div class="calendar-days flex-container flex-center">S</div>
@@ -11,9 +19,8 @@
       </div>
       <div class="flex-container flex-wrap">
         <div *ngFor="let day of daysArr">
-            <div class="calendar-days flex-container flex-center">{{ day }}</div>
+            <div class="calendar-days flex-container flex-center" [ngClass]="{ 'inactive': !day }" >{{day?.date()}}</div>
         </div>
-
       </div>
   </div>
 

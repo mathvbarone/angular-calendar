@@ -7,29 +7,28 @@ import * as moment from 'moment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
   public date = moment();
 
   public daysArr;
 
-
   createCalendar(month) {
-    // const firstDay = moment(month).startOf('M');
-     const days = Array.apply(null, {length: month.daysInMonth() + 1})
-       .map(Number.call, Number)
-       .slice(1);
+    const firstDay = moment(month).startOf('M');
+    const days = Array.apply(null, { length: month.daysInMonth()})
+      .map(Number.call, Number)
+      .map( n => {
+        return moment( firstDay ).add( n, 'd' );
+      });
 
-      return days;
+       for ( let n = 0; n < firstDay.weekday(); n++ ) {
+         days.unshift(null);
+       }
+       console.log(days);
 
+    return days;
   }
 
 
   public ngOnInit() {
-
     this.daysArr = this.createCalendar(this.date);
   }
-
-
-
-
 }

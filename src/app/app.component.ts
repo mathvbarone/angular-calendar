@@ -22,9 +22,16 @@ export class AppComponent implements OnInit {
        for ( let n = 0; n < firstDay.weekday(); n++ ) {
          days.unshift(null);
        }
-       console.log(days);
 
     return days;
+  }
+
+
+  todayCheck( day ) {
+    if ( !day ) {
+      return false;
+    }
+    return moment().format('L') === day.format('L');
   }
 
 

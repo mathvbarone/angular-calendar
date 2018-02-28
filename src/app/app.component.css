@@ -27,3 +27,8 @@ a.active{
 .width-20{
   width: 20px;
 }
+
+.today {
+  background: red;
+  color: #fff;
+}

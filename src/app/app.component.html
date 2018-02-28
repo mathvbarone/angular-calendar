@@ -3,7 +3,7 @@
     <div class="flex-container flex-center-horz">
       <i class="fas fa-chevron-left"></i>
       <div class="width-20"></div>
-      <div>Fevereiro</div>
+      <div>{{ date.format('MMMM') }} {{ date.format('YYYY') }}</div>
       <div class="width-20"></div>
       <i class="fas fa-chevron-right"></i>
     </div>
@@ -19,7 +19,7 @@
       </div>
       <div class="flex-container flex-wrap">
         <div *ngFor="let day of daysArr">
-            <div class="calendar-days flex-container flex-center" [ngClass]="{ 'inactive': !day }" >{{day?.date()}}</div>
+            <div class="calendar-days flex-container flex-center" [ngClass]="{ 'inactive': !day,'today': todayCheck(day) }" >{{day?.date()}}</div>
         </div>
       </div>
   </div>
